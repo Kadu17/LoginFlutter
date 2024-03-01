@@ -1,0 +1,29 @@
+Cadastro de transportadora
+=================================== 
+nome transportadora
+valor por km
+cnpj
+endereço
+telefone
+email 
+senha
+
+Cadastro Cliente
+===================================
+nome 
+sobenome 
+cpf
+endereço
+telefone
+email
+senha
+
+
+
+Form pagamento
+
+Opções de pagamento
+==================================
+Opcional = Cadastro Cartão
+PIX
+Boleto
