@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutterlogin/src/auth/components/custom_text_field.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:flutterlogin/config/repositories/cep_repository_impl.dart';
-import 'package:flutterlogin/repositories/cep_repository.dart';
+// import 'package:flutterlogin/config/repositories/cep_repository_impl.dart';
+// import 'package:flutterlogin/repositories/cep_repository.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
 
-  class _SignUpState extends State<SignUpScreen> {  
-    final CepRepository cepRepository = CepRepositoryImpl();
-    EnderecoModel? enderecoModel;
+//   class _SignUpState extends State<SignUpScreen> {  
+//     final CepRepository cepRepository = CepRepositoryImpl();
+//     EnderecoModel? enderecoModel;
     
 
-    final formKey = GlobalKey<FormState>();
-    final cepEC = TextEditingController();
+    // final formKey = GlobalKey<FormState>();
+    // final cepEC = TextEditingController();
 
-    @override
-      void dispose() {
-      cepEC.dispose();
-      super.dispose();
-    }
+    // @override
+    //   void dispose() {
+    //   cepEC.dispose();
+    //   super.dispose();
+    // }
   
     final cpfFormatter = MaskTextInputFormatter(
       mask: '###.###.###-##',
@@ -30,6 +30,11 @@ class SignUpScreen extends StatelessWidget {
       mask: '## #####-####',
       filter: {'#': RegExp(r'[0-9]')}
     );
+
+    // final cepFormatter = MaskTextInputFormatter(
+    //   mask: '#####-####',
+    //   filter: {'#': RegExp(r'[0-9]')}
+    // );
 
     @override
     Widget build(BuildContext context) {
@@ -95,10 +100,11 @@ class SignUpScreen extends StatelessWidget {
                             label: 'CPF',
                             inputFormatters: [cpfFormatter],
                           ),
-                          const CustomTextField(
-                            icon: Icons.map,
-                            label: 'CEP',
-                          ),
+                          // CustomTextField(
+                          //   icon: Icons.map,
+                          //   label: 'CEP',
+                          //   inputFormatters: [cepFormatter],
+                          // ),
                           SizedBox(
                             height: 50,
                             child: ElevatedButton(
@@ -142,6 +148,5 @@ class SignUpScreen extends StatelessWidget {
         ),
       );
     }
-  }
 }
 
