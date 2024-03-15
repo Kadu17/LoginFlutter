@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
-import 'package:flutterlogin/src/auth/components/category_tile.dart';
+import 'package:flutterlogin/pages/auth/home/components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -13,11 +13,14 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   List<String> categories = [
     'JORDAN',
-    'NIKE',
-    'ADIDAS',
-    'PUMA',
-    'VANS',
+    'LIFESTYLE',
+    'DUNK',
+    'AIR FORCE',
+    'AIR MAX',
   ];
+
+  // ignore: non_constant_identifier_names
+  String SelectedCategory = 'JORDAN';
 
   @override
   Widget build(BuildContext context) {
@@ -105,27 +108,33 @@ class _HomeTabState extends State<HomeTab> {
                 )
               ),
             ),
-          )
+          ),
+          // Categorias
+          Container(
+            padding: const EdgeInsets.only(left: 25),
+            height: 40,
+            child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (_, index) {
+              return CategoryTile(
+                onPressed: () {
+                  setState(() {
+                    SelectedCategory = categories[index];
+                  });
+                },
+                category: categories[index],
+                isSelected: categories[index] == SelectedCategory,
+              );
+            },
+            separatorBuilder: (_, index) => const SizedBox(width: 10),
+            itemCount: categories.length,
+            
+          ),
+        ),
         ],
       ),
 
-      // Categorias
-      Container(
-        padding: const EdgeInsets.only(left: 25),
-        height: 40,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (_, index) {
-            return CategoryTile(
-              category: categories[index],
-              isSelected: false,
-            );
-          },
-          separatorBuilder: (_, index) => const SizedBox(width: 10),
-          itemCount: categories.length,
-          
-        ),
-      ),
+      
         
 
       // Grid

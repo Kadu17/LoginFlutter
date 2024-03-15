@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterlogin/src/auth/components/custom_text_field.dart';
-import 'package:flutterlogin/src/auth/sign_up_screen.dart';
+import 'package:flutterlogin/pages/auth/home/components/custom_text_field.dart';
+import 'package:flutterlogin/pages/auth/home/sign_up_screen.dart';
 import 'package:flutterlogin/src/base/base_screen.dart';
 
 class SigInScreen extends StatelessWidget {

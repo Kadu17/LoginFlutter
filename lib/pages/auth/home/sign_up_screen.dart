@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterlogin/src/auth/components/custom_text_field.dart';
+import 'package:flutterlogin/pages/auth/home/components/custom_text_field.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 // import 'package:flutterlogin/config/repositories/cep_repository_impl.dart';
 // import 'package:flutterlogin/repositories/cep_repository.dart';
