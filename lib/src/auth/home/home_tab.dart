@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 // ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
+import 'package:flutterlogin/src/auth/components/category_tile.dart';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  List<String> categories = [
+    'JORDAN',
+    'NIKE',
+    'ADIDAS',
+    'PUMA',
+    'VANS',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +110,23 @@ class HomeTab extends StatelessWidget {
       ),
 
       // Categorias
+      Container(
+        padding: const EdgeInsets.only(left: 25),
+        height: 40,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (_, index) {
+            return CategoryTile(
+              category: categories[index],
+              isSelected: false,
+            );
+          },
+          separatorBuilder: (_, index) => const SizedBox(width: 10),
+          itemCount: categories.length,
+          
+        ),
+      ),
+        
 
       // Grid
     );
