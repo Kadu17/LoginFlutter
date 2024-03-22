@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 // ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
+import 'package:flutterlogin/config/app_data.dart' as appData;
 import 'package:flutterlogin/pages/auth/home/components/category_tile.dart';
+import 'package:flutterlogin/pages/auth/home/components/item_tile.dart';
+
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -11,13 +14,6 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> categories = [
-    'JORDAN',
-    'LIFESTYLE',
-    'DUNK',
-    'AIR FORCE',
-    'AIR MAX',
-  ];
 
   // ignore: non_constant_identifier_names
   String SelectedCategory = 'JORDAN';
@@ -119,25 +115,38 @@ class _HomeTabState extends State<HomeTab> {
               return CategoryTile(
                 onPressed: () {
                   setState(() {
-                    SelectedCategory = categories[index];
+                    SelectedCategory = appData.categories[index];
                   });
                 },
-                category: categories[index],
-                isSelected: categories[index] == SelectedCategory,
+                category: appData.categories[index],
+                isSelected: appData.categories[index] == SelectedCategory,
               );
             },
             separatorBuilder: (_, index) => const SizedBox(width: 10),
-            itemCount: categories.length,
+            itemCount: appData.categories.length,
             
           ),
         ),
-        ],
+        Expanded(
+          child: GridView.builder(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            // physics: const BouncingScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 9 / 11.5
+          ),
+          itemCount: appData.items.length,
+          itemBuilder: (_, index) {
+              return ItemTile(
+                item: appData.items[index],
+              );
+            },
+          ),
+        ),
+        ], 
       ),
-
-      
-        
-
-      // Grid
     );
   }
 }
